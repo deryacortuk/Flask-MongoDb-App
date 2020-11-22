@@ -10,6 +10,7 @@ import pymongo
 
 
 app = Flask(__name__)
+app.secret_key = "mysecret key"
 
 def login_required(f):
     @wraps(f)
@@ -23,7 +24,7 @@ def login_required(f):
     return decorated_function
 
 
-app.secret_key = "mysecret key"
+
 
 @app.route('/')
 def home():
